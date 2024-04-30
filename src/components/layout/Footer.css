@@ -1,0 +1,17 @@
+.footer {
+    background-color: #f8f9fa; /* Light grey background */
+    color: #6c757d; /* Dark grey text */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed; /* Fix position to the bottom of the page */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #dee2e6; /* Adds a line on top of the footer */
+  }
+  
+  .container {
+    width: 90%;
+    margin: 0 auto; /* Center the content inside the footer */
+  }
+  
