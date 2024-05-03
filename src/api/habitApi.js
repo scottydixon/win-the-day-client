@@ -5,10 +5,19 @@ const habitApi = {
   fetchHabits: async () => {
     try {
       const response = await axios.get("/habits");
+      // Ensure the response contains an array for habits; if not, provide an empty array
+      if (!Array.isArray(response.data.habits)) {
+        console.error(
+          "Expected habits to be an array, received:",
+          response.data.habits
+        );
+        return { habits: [] };
+      }
       return response.data;
     } catch (error) {
       console.error("Error fetching habits:", error);
-      throw error;
+      // Return a default structure with an empty array to prevent frontend errors
+      return { habits: [] };
     }
   },
   fetchHabit: async (id) => {
@@ -44,73 +53,6 @@ const habitApi = {
       return response.data;
     } catch (error) {
       console.error(`Error deleting habit ${id}:`, error);
-      throw error;
-    }
-  },
-
-  // Users API
-  getUser: async () => {
-    try {
-      const response = await axios.get("/users");
-      return response.data;
-    } catch (error) {
-      console.error("Error getting user:", error);
-      throw error;
-    }
-  },
-  updateUser: async (userData) => {
-    try {
-      const response = await axios.put("/users", userData);
-      return response.data;
-    } catch (error) {
-      console.error("Error updating user:", error);
-      throw error;
-    }
-  },
-  deleteUser: async () => {
-    try {
-      const response = await axios.delete("/users");
-      return response.data;
-    } catch (error) {
-      console.error("Error deleting user:", error);
-      throw error;
-    }
-  },
-
-  // Tasks API
-  createTask: async (taskData) => {
-    try {
-      const response = await axios.post("/tasks", taskData);
-      return response.data;
-    } catch (error) {
-      console.error("Error creating task:", error);
-      throw error;
-    }
-  },
-  getTasks: async () => {
-    try {
-      const response = await axios.get("/tasks");
-      return response.data;
-    } catch (error) {
-      console.error("Error fetching tasks:", error);
-      throw error;
-    }
-  },
-  updateTask: async (id, taskData) => {
-    try {
-      const response = await axios.put(`/tasks/${id}`, taskData);
-      return response.data;
-    } catch (error) {
-      console.error(`Error updating task ${id}:`, error);
-      throw error;
-    }
-  },
-  deleteTask: async (id) => {
-    try {
-      const response = await axios.delete(`/tasks/${id}`);
-      return response.data;
-    } catch (error) {
-      console.error(`Error deleting task ${id}:`, error);
       throw error;
     }
   },

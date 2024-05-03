@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Paper,
@@ -8,13 +8,17 @@ import {
   Grid,
   Link,
 } from "@mui/material";
+import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom"; // For redirecting to another route upon successful login
 import authApi from "../../api/authApi"; // Adjust the path as necessary
 
 function LoginForm() {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [setError] = useState(null);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { login, user } = useAuth();
+
+  useEffect(() => {}, [useAuth]);
 
   const handleChange = (event) => {
     setFormData({
@@ -29,8 +33,8 @@ function LoginForm() {
       // Send login credentials to the backend
       const response = await authApi.login(formData.email, formData.password);
       console.log("Login successful", response);
-
-      localStorage.setItem("token", response.token);
+      login(response.token);
+      //   localStorage.setItem("token", response.token);
 
       navigate("/dashboard"); // Redirect to the dashboard after successful login
     } catch (error) {
