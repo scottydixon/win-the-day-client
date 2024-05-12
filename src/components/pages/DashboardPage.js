@@ -45,7 +45,7 @@ function DashboardPage() {
   const handleSaveHabit = async (formData) => {
     try {
       console.log("Saving habit:", formData);
-      const habitData = { habitName: formData.name }; // Ensure this matches with your backend expected params
+      const habitData = { habitName: formData.name };
       const response = await habitApi.createHabit(habitData);
       console.log("Habit saved successfully:", response);
       if (response.habit) {
