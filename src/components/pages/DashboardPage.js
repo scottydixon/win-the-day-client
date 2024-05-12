@@ -46,6 +46,7 @@ function DashboardPage() {
     try {
       console.log("Saving habit:", formData);
       const habitData = { habitName: formData.name };
+
       const response = await habitApi.createHabit(habitData);
       console.log("Habit saved successfully:", response);
       if (response.habit) {
