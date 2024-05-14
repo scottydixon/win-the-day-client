@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HabitList from "../habit/HabitList";
-import HabitForm from "../habit/HabitForm";
+import HabitForm from "../habit/habitForm";
 import { Container, Typography, Button } from "@mui/material";
 import habitApi from "../../api/habitApi";
 import usersApi from "../../api/usersApi";
