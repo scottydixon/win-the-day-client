@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Container,
   Paper,
@@ -14,11 +14,9 @@ import authApi from "../../api/authApi"; // Adjust the path as necessary
 
 function LoginForm() {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [error, setError] = useState(null);
+  const [setError] = useState(null);
   const navigate = useNavigate();
-  const { login, user } = useAuth();
-
-  useEffect(() => {}, [useAuth]);
+  const { login } = useAuth();
 
   const handleChange = (event) => {
     setFormData({
