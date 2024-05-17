@@ -4,7 +4,9 @@ const habitApi = {
   // Habits API
   fetchHabits: async () => {
     try {
-      const response = await axios.get("/habits");
+      const response = await axios.get(
+        "https://win-the-day-server.vercel.app/api//habits"
+      );
       // Ensure the response contains an array for habits; if not, provide an empty array
       if (!Array.isArray(response.data.habits)) {
         console.error(
@@ -22,7 +24,9 @@ const habitApi = {
   },
   fetchHabit: async (id) => {
     try {
-      const response = await axios.get(`/habits/${id}`);
+      const response = await axios.get(
+        `https://win-the-day-server.vercel.app/api//habits/${id}`
+      );
       return response.data;
     } catch (error) {
       console.error(`Error fetching habit ${id}:`, error);
@@ -31,7 +35,10 @@ const habitApi = {
   },
   createHabit: async (habitData) => {
     try {
-      const response = await axios.post("/habits", habitData);
+      const response = await axios.post(
+        "https://win-the-day-server.vercel.app/api//habits",
+        habitData
+      );
       return response.data;
     } catch (error) {
       console.error("Error creating habit:", error);
@@ -40,7 +47,10 @@ const habitApi = {
   },
   updateHabit: async (id, habitData) => {
     try {
-      const response = await axios.put(`/habits/${id}`, habitData);
+      const response = await axios.put(
+        `https://win-the-day-server.vercel.app/api//habits/${id}`,
+        habitData
+      );
       return response.data;
     } catch (error) {
       console.error(`Error updating habit ${id}:`, error);
@@ -49,7 +59,9 @@ const habitApi = {
   },
   deleteHabit: async (id) => {
     try {
-      const response = await axios.delete(`/habits/${id}`);
+      const response = await axios.delete(
+        `https://win-the-day-server.vercel.app/api//habits/${id}`
+      );
       return response.data;
     } catch (error) {
       console.error(`Error deleting habit ${id}:`, error);
