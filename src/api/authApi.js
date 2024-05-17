@@ -3,7 +3,10 @@ import axios from "./axiosSetup";
 const authApi = {
   async login(email, password) {
     try {
-      const response = await axios.post("/login", { email, password });
+      const response = await axios.post(
+        "https://win-the-day-server.vercel.app/login",
+        { email, password }
+      );
       return response.data;
     } catch (error) {
       console.error("Error logging in:", error);
@@ -14,7 +17,10 @@ const authApi = {
   // Updated registerUser function to use a dedicated registration endpoint
   async registerUser(userData) {
     try {
-      const response = await axios.post("/users", userData); // Using a dedicated register endpoint
+      const response = await axios.post(
+        "https://win-the-day-server.vercel.app/users",
+        userData
+      ); // Using a dedicated register endpoint
       return response.data;
     } catch (error) {
       console.error("Error registering user:", error);
