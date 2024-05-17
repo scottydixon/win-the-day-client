@@ -8,7 +8,6 @@ const authApi = {
         { email, password }
       );
       return response.data;
-      console.log(response);
     } catch (error) {
       console.error("Error logging in:", error);
       throw error;
