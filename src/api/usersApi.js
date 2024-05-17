@@ -5,7 +5,7 @@ const usersApi = {
   getUser: async () => {
     try {
       const response = await axios.get(
-        "https://win-the-day-server.vercel.app/api//users"
+        "https://win-the-day-server.vercel.app/api/users"
       );
       return response.data;
     } catch (error) {
@@ -16,7 +16,7 @@ const usersApi = {
   updateUser: async (userData) => {
     try {
       const response = await axios.put(
-        "https://win-the-day-server.vercel.app/api//users",
+        "https://win-the-day-server.vercel.app/api/users",
         userData
       );
       return response.data;
@@ -28,7 +28,7 @@ const usersApi = {
   deleteUser: async () => {
     try {
       const response = await axios.delete(
-        "https://win-the-day-server.vercel.app/api//users"
+        "https://win-the-day-server.vercel.app/api/users"
       );
       return response.data;
     } catch (error) {
