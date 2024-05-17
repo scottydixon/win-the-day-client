@@ -7,7 +7,7 @@ const authApi = {
         "https://win-the-day-server.vercel.app/api/login",
         { email, password }
       );
-      // return response.data;
+      return response.data;
       console.log(response);
     } catch (error) {
       console.error("Error logging in:", error);
