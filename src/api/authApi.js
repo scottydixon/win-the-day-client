@@ -4,7 +4,7 @@ const authApi = {
   async login(email, password) {
     try {
       const response = await axios.post(
-        "https://win-the-day-server.vercel.app/login",
+        "https://win-the-day-server.vercel.app/api/login",
         { email, password }
       );
       return response.data;
@@ -18,7 +18,7 @@ const authApi = {
   async registerUser(userData) {
     try {
       const response = await axios.post(
-        "https://win-the-day-server.vercel.app/users",
+        "https://win-the-day-server.vercel.app/api/users",
         userData
       ); // Using a dedicated register endpoint
       return response.data;
